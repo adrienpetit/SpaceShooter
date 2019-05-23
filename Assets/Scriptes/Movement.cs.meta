@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 93b990f2b3997422cae5c5653738716d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - shot: {instanceID: 0}
+  - Shoot: {instanceID: 0}
+  - LifeBar: {instanceID: 0}
+  - Explosion: {instanceID: 0}
+  - RestartPanel: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
