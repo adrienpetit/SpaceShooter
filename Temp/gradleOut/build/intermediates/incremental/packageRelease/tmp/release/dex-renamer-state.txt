@@ -1,0 +1,4 @@
+#Wed Jun 19 13:09:43 CEST 2019
+base.0=/Users/vyniad/Desktop/Ecam/4ei/SpaceShooter/SpaceShooter/Temp/gradleOut/build/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex

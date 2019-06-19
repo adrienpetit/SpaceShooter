@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Proyecto26;
+
 
 public class Score : MonoBehaviour
 {
-    public int score;
+    public  int score;
     private int BestScore=0;
     public Text ScoreText;
+
+
+    public GameObject SauvegardePanel;
+    public GameObject RestartPanel;
+
 
     void Awake()
     {
@@ -37,7 +44,12 @@ public class Score : MonoBehaviour
 
      void OnDestroy()
     {
+       
+
         PlayerPrefs.SetInt("bestScore", BestScore);
         PlayerPrefs.Save();
     }
+
+
+
 }

@@ -17,20 +17,29 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject shot;//this is the shot prefabs
     public Transform Shoot;//where the shoot starts
-    public float speedFire=0.5F;//time between shots
+    public float speedFire=50F;//time between shots
     private float nextFire = 0.0F;
     public Slider LifeBar;//reference à la barre de vie 
     public int hp;
     public GameObject Explosion; // prefab explosion
     public GameObject RestartPanel;
+    float accelStartY;
 
     public Button gauche, droite, tirer;
     // Start is called before the first frame update
+    public void Init()
+    {
+
+        transform.position = new Vector2(0, 0);
+        gameObject.SetActive(true);
+    }
     void Start()
     {
-        gauche.onClick.AddListener(Gauche);
+        /*gauche.onClick.AddListener(Gauche);
         droite.onClick.AddListener(Droite);
-        tirer.onClick.AddListener(Tirer);
+        tirer.onClick.AddListener(Tirer);*/
+
+        accelStartY = Input.acceleration.y;
     }
    
     // Update is called once per frame
@@ -41,18 +50,20 @@ public class Movement : MonoBehaviour
             Mathf.Clamp(GetComponent<Transform>().position.x, boundary.xMin, boundary.xMax),
             Mathf.Clamp(GetComponent<Transform>().position.y, boundary.yMin, boundary.yMax));
 
-    	/*if (Input.GetKeyDown(KeyCode.RightArrow))
+        /*if (Input.GetTouch > boundary.xMax)
     	{
     		GetComponent<Rigidbody2D>().velocity = new Vector2 (speedMovement, 0);
     	}
-    	if (Input.GetKeyDown(KeyCode.LeftArrow))
-    	{
+
+        if (Input.GetTouch < boundary.xMax)
+        {
     		GetComponent<Rigidbody2D>().velocity = new Vector2 (-speedMovement, 0);
     	}
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        */
+         if (Input.touchCount>0)
+        
         {
-            nextFire = Time.time + speedFire; // prochain shot apres tTime.time+speedFire
+            //nextFire = Time.time + speedFire; // prochain shot apres tTime.time+speedFire
             Instantiate(shot, Shoot.position, Shoot.rotation);//creation du shot prefabs
 
         }
@@ -61,10 +72,40 @@ public class Movement : MonoBehaviour
         {
             Destroy(gameObject);// Détruire notre vaisseau si plus de vie
         }*/
-       
+        float x = Input.acceleration.x;
+        float y = 0;
+
+        Vector2 direction = new Vector2(x, y);
+
+        if (direction.sqrMagnitude > 1)
+            direction.Normalize();
+
+
+
+        Move(direction);
+
 
     }
-    public void Gauche()
+    void Move(Vector2 direction)
+    {
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+
+        max.x = max.x - 0.2f;
+        min.x = min.x - 0.2f;
+
+       // min.y = min.y - 0.5f;
+       // max.y = max.y - 0.5f;
+
+        Vector2 pos = transform.position;
+        pos += direction * speedMovement * Time.deltaTime * 5;
+
+        pos.x = Mathf.Clamp(pos.x, min.x, max.x);
+       // pos.y = Mathf.Clamp(pos.y, min.y, max.y);
+
+        transform.position = pos;
+    }
+    /*public void Gauche()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(-speedMovement, 0);
 
@@ -80,9 +121,10 @@ public class Movement : MonoBehaviour
         Instantiate(shot, Shoot.position, Shoot.rotation);//creation du shot prefabs
 
     }
+    */   
     void OnTriggerEnter2D(Collider2D other)//gerer collision de notre vaisseua
     {
-        if (other.tag == "Enemy" || other.tag == "LaserEnemy")//if collision with my laser
+        if (other.tag == "Enemy" || other.tag == "LaserEnemy")//if we  collision with laser or enemy
         {
             hp--;
             //Destroy(other.gameObject);// destroy my laser bullet
