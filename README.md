@@ -1,12 +1,12 @@
 # SpaceShooter
 
-
+<h2>
 Librairies :
-
+</h2>
 Nous avons utilisé les librairies classiques de Unity a savoir :
   
-  "using UnityEngine.UI"
-  "using UnityEngine"
+ - "using UnityEngine.UI"
+ - "using UnityEngine"
   
  Ces librairies sont les librairies de base qui nous permettent d'accèder aux collections de classes de base d'Unity.
  
