@@ -22,4 +22,4 @@ Et enfin la librairie <big>"using Proyecto26"</big> qui nous a permis d'utiliser
 <h2>Diagramme de classes</h2>
 
 ![alt text](Bureau⁩/spaceShooter.png)
-<img src="spaceShooter.png">
+<img src="Bureau/spaceShooter.png">
