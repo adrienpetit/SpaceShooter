@@ -20,3 +20,5 @@ qui nous donne accès à des collections de classes.
 Et enfin la librairie <big>"using Proyecto26"</big> qui nous a permis d'utiliser le module RestClient nécessaire pour intérargir avec notre base de données Firebase.  
 
 <h2>Diagramme de classes</h2>
+
+<img src="desktop/spaceShooter.png">
