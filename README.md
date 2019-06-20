@@ -21,4 +21,4 @@ Et enfin la librairie <big>"using Proyecto26"</big> qui nous a permis d'utiliser
 
 <h2>Diagramme de classes</h2>
 
-![picture alt](vyniad/Desktop/spaceShooter.png)
+![picture alt](Desktop/spaceShooter.png)
