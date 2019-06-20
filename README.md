@@ -21,4 +21,5 @@ Et enfin la librairie <big>"using Proyecto26"</big> qui nous a permis d'utiliser
 
 <h2>Diagramme de classes</h2>
 
+![alt text](OSX⁩/Utilisateurs⁩/vyniad⁩/Bureau⁩/spaceShooter.png)
 <img src="spaceShooter.png">
